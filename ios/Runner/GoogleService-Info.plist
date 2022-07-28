@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>337188672655-t7dbh3niarij563fnbpl7viva7iqbvob.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.337188672655-t7dbh3niarij563fnbpl7viva7iqbvob</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>337188672655-irs27b9otp3a45112if2fbth04oirsbf.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBFZJZ948CEw0GNVzHwlbFNP2ionl1sDAo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>337188672655</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kapp.meet</string>
+	<key>PROJECT_ID</key>
+	<string>meet-d9718</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meet-d9718.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:337188672655:ios:31ac0b01af2852e9fd0cfa</string>
+</dict>
+</plist>

@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "337188672655",
+    "project_id": "meet-d9718",
+    "storage_bucket": "meet-d9718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337188672655:android:7c23544a9ad5f8b6fd0cfa",
+        "android_client_info": {
+          "package_name": "com.kapp.meet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337188672655-irs27b9otp3a45112if2fbth04oirsbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapp.meet",
+            "certificate_hash": "02a00c0771cc776ffcaed22cc024095c6fd5e47f"
+          }
+        },
+        {
+          "client_id": "337188672655-9cv816nm0eie897g759pt9osrsba8qlj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2-y3R_MYZSyzgKsmBCc9Hu0KMQK-HObI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337188672655-9cv816nm0eie897g759pt9osrsba8qlj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "337188672655-hqj0tul1hjtckncca1p91uf1k36ges8q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.meet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337188672655:android:ea043f9ae132768efd0cfa",
+        "android_client_info": {
+          "package_name": "com.kapp.meetTogether"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337188672655-9cv816nm0eie897g759pt9osrsba8qlj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2-y3R_MYZSyzgKsmBCc9Hu0KMQK-HObI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337188672655-9cv816nm0eie897g759pt9osrsba8qlj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "337188672655-hqj0tul1hjtckncca1p91uf1k36ges8q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.meet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
