@@ -4,7 +4,7 @@
 
 ## 功能特色
 #### &emsp;外觀
-##### &emsp;&emsp;1.支援 深／淺 模式
+##### &emsp;&emsp;1.支援 深色／淺色 模式
 ##### &emsp;&emsp;2.支援 Material You &emsp;(Material 3)
 ##### &emsp;&emsp;3.支援 動態顏色系統&emsp;(Android 12 以上)
 #### &emsp;功能
