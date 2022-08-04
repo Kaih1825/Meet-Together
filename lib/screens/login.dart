@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:meet/auth/firebase_auth_google.dart';
 import 'package:meet/screens/no_Internet.dart';
 import 'package:meet/utils/snackBar.dart';
