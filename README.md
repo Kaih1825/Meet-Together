@@ -21,7 +21,7 @@
 </br>
 <h2><a href="https://youtu.be/LlDx5_K7wwc">使用影片(Youtube連結)</a></h2></br>
 
-## 使用程式碼前需要做的事 (Google 登入需要，若為[在此](https://github.com/Kaih1825/Meet-Together/releases)安裝apk的話則不需要)
+## 使用程式碼前需要做的事 (Google 登入需要，若為[在此](https://github.com/Kaih1825/Meet-Together/releases)安裝的apk則不需要)
 ### 1.必須先安裝 [Firebase CLI](https://firebase.google.com/docs/cli#setup_update_cli) 及 [Java](https://www.java.com/zh-TW/) 
 ### 2.使用以下指令登入Firebase
 `firebase login`
