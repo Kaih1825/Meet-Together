@@ -17,7 +17,7 @@
 #### &emsp;&emsp; 支援系統：Android 6.0以上 (最佳系統為Android 12)
 #### &emsp;&emsp; 開發系統：Windows 11、Manjaro 21.3.0 
 #### &emsp;&emsp; 開發工具：Visual Studio Code
-
+#### &emsp;&emsp; 會議提供者：[Jitsi Meet](https://meet.jit.si/)
 
 ## 螢幕截圖(Android 12)
 
