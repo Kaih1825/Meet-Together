@@ -4,19 +4,19 @@
 
 ## 功能特色
 #### &emsp;外觀
-##### &emsp;&emsp;1.支援 深／淺 模式
-##### &emsp;&emsp;2.支援 Material You &emsp;(Material 3)
-##### &emsp;&emsp;3.支援 動態顏色系統&emsp;(Android 12 以上)
+&emsp;&emsp;1.支援 深／淺 模式
+&emsp;&emsp;2.支援 Material You &emsp;(Material 3)
+&emsp;&emsp;3.支援 動態顏色系統&emsp;(Android 12 以上)
 #### &emsp;功能
-##### &emsp;&emsp;1.支援 Google 登入及自訂頭貼、名稱登入
-##### &emsp;&emsp;2.支援 儲存會議代碼，供快速加入
+&emsp;&emsp;1.支援 Google 登入及自訂頭貼、名稱登入
+&emsp;&emsp;2.支援 儲存會議代碼，供快速加入
 
 ## 系統架構
-#### &emsp;&emsp; 開發框架：Flutter
-#### &emsp;&emsp; 開發語言：Dart
-#### &emsp;&emsp; 支援系統：Android 6.0以上 (最佳系統為Android 12)
-#### &emsp;&emsp; 開發系統：Windows 11、Manjaro 21.3.0 
-#### &emsp;&emsp; 開發工具：Visual Studio Code
+&emsp;&emsp; 開發框架：Flutter
+&emsp;&emsp; 開發語言：Dart
+&emsp;&emsp; 支援系統：Android 6.0以上 (最佳系統為Android 12)
+&emsp;&emsp; 開發系統：Windows 11、Manjaro 21.3.0 
+&emsp;&emsp; 開發工具：Visual Studio Code
 
 
 ## 螢幕截圖(Android 12)
