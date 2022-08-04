@@ -20,9 +20,7 @@
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/set_info.png?raw=true" height="500"></p> 
 
 ### 主畫面
-<center class="half">
-    <img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_light.png?raw=true" width="30%"/><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_dark.png?raw=true" width="30%"/>
-</center>
+<p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_light.png?raw=true" height="500"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_dark.png?raw=true" height="500"></p> 
 
 ### 會議畫面
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/metting_screen.png?raw=true" height="500"></p> 
