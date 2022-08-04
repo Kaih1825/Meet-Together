@@ -18,6 +18,29 @@
 #### &emsp;&emsp; 開發系統：Windows 11、Manjaro 21.3.0 
 #### &emsp;&emsp; 開發工具：Visual Studio Code
 #### &emsp;&emsp; 會議提供者：[Jitsi Meet](https://meet.jit.si/)
+</br>
+<h2><a href="https://youtu.be/LlDx5_K7wwc">使用影片(Youtube連結)</a></h2></br>
+
+## 使用程式碼前需要做的事 (Google 登入需要，若為[在此](https://github.com/Kaih1825/Meet-Together/releases)安裝apk的話則不需要)
+### 1.必須先安裝 [Firebase CLI](https://firebase.google.com/docs/cli#setup_update_cli) 及 [Java](https://www.java.com/zh-TW/) 
+### 2.使用以下指令登入Firebase
+`firebase login`
+### 3.設定 Firebase
+`flutterfire configure`
+### 4.到 JDK 底下的 Bin 資料夾，輸入以下指令生成金鑰
+Mac/Linux </br>
+`keytool -list -v \-alias androiddebugkey -keystore ~/.android/debug.keystore`
+
+Windows </br>
+`keytool -list -v \-alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore`
+
+### 5.將金鑰輸入至Firebase專案裡
+
+(若沒有執行，將只能使用自訂名稱/頭貼登入) </br>
+### 資料來源 </br>
+[將 Firebase 添加到您的 Flutter 應用](https://firebase.google.com/docs/flutter/setup?platform=ios)</br>
+[Authenticating Your Client](https://developers.google.com/android/guides/client-auth)
+
 
 ## 螢幕截圖(Android 12)
 
@@ -33,7 +56,7 @@
 ##### 會議畫面
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/metting_screen.png?raw=true" height="500"></p> 
 
-## [使用影片(Youtube連結)](https://youtu.be/LlDx5_K7wwc)
+
 
 
 ## 使用的外掛程式
