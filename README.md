@@ -33,8 +33,8 @@
 ##### 會議畫面
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/metting_screen.png?raw=true" height="500"></p> 
 
-## 使用影片
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LlDx5_K7wwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+## [使用影片](https://youtu.be/LlDx5_K7wwc)
+
 
 ## 使用的外掛程式
 #### &emsp;&emsp; [Cupertino Icons 1.0.5](https://pub.dev/packages/cupertino_icons)
