@@ -36,6 +36,7 @@ Windows </br>
 
 ### 5.將金鑰輸入至Firebase專案裡
 ### 6.在Firebase的專案裡開啟Google登入及匿名登入
+### 7.下載google-services.json 並覆蓋至
 
 (若沒有執行，將只能使用自訂名稱/頭貼登入) </br>
 ### 資料來源 </br>
