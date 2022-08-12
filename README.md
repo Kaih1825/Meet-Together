@@ -39,8 +39,8 @@ Windows </br>
 ### 7.下載google-services.json 並覆蓋至 專案位置/android/app
 
 (若沒有執行，將只能使用自訂名稱/頭貼登入) </br>
-### 1.常見問題 </br>
-#### 若顯示 &emsp;Keystore file does not exist
+### 常見問題 </br>
+#### 1.若顯示 &emsp;Keystore file does not exist
 先cp到`C:\Users\your_user_name\.android`
 輸入
 `keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`
