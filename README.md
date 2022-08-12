@@ -48,7 +48,7 @@ Windows </br>
 #### 2.無法使用Google登入(出現以下畫面)
 ![Google Login Error](https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/google-error.png?raw=true)</br>
 先刪掉`C:\Users\your_user_name\.android\debug.keystore`</br>
-再使用常見問題1的方式即可</br>
+再使用常見問題1的方式即可
 ### 資料來源 </br>
 [將 Firebase 添加到您的 Flutter 應用](https://firebase.google.com/docs/flutter/setup?platform=ios)</br>
 [Authenticating Your Client](https://developers.google.com/android/guides/client-auth)
