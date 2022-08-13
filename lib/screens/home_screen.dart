@@ -277,7 +277,10 @@ class _home_screenState extends State<home_screen> {
                     padding: EdgeInsets.all(2.5),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Theme.of(context).colorScheme.primary.withOpacity(0.3)),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.3)),
                     child: ClipOval(
                       child: Image.network(
                         url,
@@ -306,6 +309,11 @@ class _home_screenState extends State<home_screen> {
               ),
               onTap: loginMethod == "anonymous"
                   ? () {
+                      /*Navigator.of(context).pushAndRemoveUntil(
+                          PageAnimationTransition(
+                              page: set_information_screen(),
+                              pageAnimationType: RightToLeftTransition()),
+                          (route) => route == null);*/
                       Navigator.of(context).push(PageAnimationTransition(
                           page: set_information_screen(),
                           pageAnimationType: RightToLeftTransition()));
@@ -547,8 +555,20 @@ class _home_screenState extends State<home_screen> {
                             bottom: 10.0, left: 10.0, right: 10.0),
                         child: Card(
                           child: ListTile(
-                            title: Text(item,style: TextStyle(color: Theme.of(context).colorScheme.onSecondaryContainer),),
-                            subtitle: Text("會議代碼："+roomNameList[index],style: TextStyle(color: Theme.of(context).colorScheme.onSecondaryContainer),),
+                            title: Text(
+                              item,
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                            ),
+                            subtitle: Text(
+                              "會議代碼：" + roomNameList[index],
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer),
+                            ),
                           ),
                           color:
                               Theme.of(context).colorScheme.secondaryContainer,

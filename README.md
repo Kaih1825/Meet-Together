@@ -39,6 +39,16 @@ Windows </br>
 ### 7.下載google-services.json 並覆蓋至 專案位置/android/app
 
 (若沒有執行，將只能使用自訂名稱/頭貼登入) </br>
+### 常見問題 </br>
+#### 1.若顯示 &emsp;Keystore file does not exist
+先cp到`C:\Users\your_user_name\.android`</br>
+輸入</br>
+`keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000`</br>
+回答問題後，再回到步驟4就可以了</br>
+#### 2.無法使用Google登入(出現以下畫面)
+![Google Login Error](https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/google-error.png?raw=true)</br>
+先刪掉`C:\Users\your_user_name\.android\debug.keystore`</br>
+再使用常見問題1的方式即可
 ### 資料來源 </br>
 [將 Firebase 添加到您的 Flutter 應用](https://firebase.google.com/docs/flutter/setup?platform=ios)</br>
 [Authenticating Your Client](https://developers.google.com/android/guides/client-auth)

@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:meet/auth/firebase_auth_google.dart';
 import 'package:meet/screens/no_Internet.dart';
 import 'package:meet/utils/snackBar.dart';
+import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
+import 'package:page_animation_transition/animations/right_to_left_transition.dart';
 import '../utils/color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../auth/firebase_auth_custom_name.dart';
@@ -13,6 +16,7 @@ import '../screens/home_screen.dart';
 import '../main.dart';
 import 'set_information_screen.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:page_animation_transition/page_animation_transition.dart';
 
 class login_screen extends StatefulWidget {
   const login_screen({Key? key}) : super(key: key);
@@ -129,7 +133,16 @@ class _login_screenState extends State<login_screen> {
                             result[0].rawAddress.isNotEmpty;
                         bool res = await signInAnonymously(context);
                         if (res) {
-                          Navigator.pushNamed(context, '/setInfo');
+                          /*Navigator.of(context).pushAndRemoveUntil(
+                          PageAnimationTransition(
+                              page: set_information_screen(),
+                              pageAnimationType: RightToLeftTransition()),
+                          (route) => route == null);*/
+                          Navigator.of(context).push(PageAnimationTransition(
+                              page: set_information_screen(),
+                              pageAnimationType: RightToLeftTransition()));
+
+                          //Navigator.pushNamed(context, '/setInfo');
                         }
                       } on SocketException catch (_) {
                         Navigator.of(context).pushAndRemoveUntil(
@@ -152,7 +165,10 @@ class _login_screenState extends State<login_screen> {
                   child: Text(
                     "圖片版權說明",
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground.withOpacity(0.3),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onBackground
+                            .withOpacity(0.3),
                         fontWeight: FontWeight.w600,
                         fontSize: 15.0),
                   ),

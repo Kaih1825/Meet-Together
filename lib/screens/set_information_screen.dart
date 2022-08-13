@@ -16,15 +16,21 @@ class _set_information_screenState extends State<set_information_screen> {
   var imgkey = UniqueKey();
   String URL = information.photoURL;
   TextEditingController nameCon = TextEditingController();
+  TextEditingController urlCon = TextEditingController();
   bool _validate = false;
-  
+
   void initState() {
     super.initState();
+    URL = information.photoURL;
+    URL == "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"
+        ? urlCon.text = "預設圖片"
+        : urlCon.text = URL;
+    _loadData("name");
   }
 
   void dispose() {
-  nameCon.dispose();
-  super.dispose();
+    nameCon.dispose();
+    super.dispose();
   }
 
   _updateData(String key, String value) async {
@@ -34,9 +40,17 @@ class _set_information_screenState extends State<set_information_screen> {
     });
   }
 
+  _loadData(String key) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    setState(() {
+      if (key == "name") {
+        nameCon.text = (sp.getString(key) ?? "匿名");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).requestFocus(FocusNode());
@@ -49,33 +63,61 @@ class _set_information_screenState extends State<set_information_screen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                child: GestureDetector(
-                  onTap: () {
-                    set_photoURL_dialog(context);
-                    URL = information.photoURL;
-                    print(URL);
-                    FocusScope.of(context).requestFocus(FocusNode());
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(3.0),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Theme.of(context).colorScheme.primary.withOpacity(0.3)),
-                    child: ClipOval(
-                      child: Image.network(
-                        URL,
-                        width: 150,
-                        height: 150,
-                        fit: BoxFit.cover,
-                      ),
+                child: Container(
+                  padding: EdgeInsets.all(3.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.3)),
+                  child: ClipOval(
+                    child: Image.network(
+                      URL,
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        URL =
+                            "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png";
+                        return Image.network(
+                          "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png",
+                          width: 150,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        );
+                      },
                     ),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 80.0, right: 80.0, top: 5.0),
+                padding: EdgeInsets.only(left: 80.0, right: 80.0, top: 10.0),
+                child: TextField(
+                  controller: urlCon,
+                  style: TextStyle(fontSize: 20.0),
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: "圖片URL",
+                    contentPadding: EdgeInsets.only(bottom: -8.0),
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      value.isEmpty
+                          ? information.photoURL =
+                              "https://upload.wikimedia.org/wikipedia/commons/c/cd/Portrait_Placeholder_Square.png"
+                          : information.photoURL = urlCon.text;
+                      URL = information.photoURL;
+                      //FocusScope.of(context).requestFocus(FocusNode());
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 80.0, right: 80.0, top: 10.0),
                 child: TextField(
                   controller: nameCon,
+                  maxLength: 20,
                   decoration: InputDecoration(
                     hintText: "名字",
                     contentPadding: EdgeInsets.only(bottom: -8.0),
@@ -117,10 +159,9 @@ class _set_information_screenState extends State<set_information_screen> {
                       onPressed: _validate
                           ? null
                           : () {
-                              if (nameCon.text == "") {
-                                information.name = "匿名";
-                              } else
-                                information.name = nameCon.text;
+                              nameCon.text == ""
+                                  ? information.name = "匿名"
+                                  : information.name = nameCon.text;
                               information.photoURL = URL;
                               Navigator.pushNamed(context, '/home');
                             }),
