@@ -56,14 +56,17 @@ Windows </br>
 
 ## 螢幕截圖(Android 12)
 
+##### 介面介紹
+<p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/how-to-use.png?raw=true" height="500"></p>
+
 ##### 登入介面
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/login.png?raw=true" height="500"></p> 
 
 ##### 設定個人資訊
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/set_info.png?raw=true" height="500"></p> 
 
-##### 主畫面
-<p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_light.png?raw=true" height="500"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_dark.png?raw=true" height="500"></p> 
+##### 主畫面&emsp;(深色模式)
+<p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/home_dark.png?raw=true" height="500"></p> 
 
 ##### 會議畫面
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/Screenshot/metting_screen.png?raw=true" height="500"></p> 
