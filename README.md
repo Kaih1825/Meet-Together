@@ -74,7 +74,7 @@ Windows </br>
 
 
 
-## 使用的外掛程式
+## 使用的套件
 #### &emsp;&emsp; [Cupertino Icons 1.0.5](https://pub.dev/packages/cupertino_icons)
 #### &emsp;&emsp; [Firebase Auth 3.4.2](https://pub.dev/packages/firebase_auth)
 #### &emsp;&emsp; [google_sign_in 5.4.0](https://pub.dev/packages/google_sign_in)
