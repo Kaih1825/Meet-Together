@@ -2,6 +2,9 @@
 <h3 align="center"> 快速與他人建立連繫</h3>
 <p align="center"><img src="https://github.com/Kaih1825/Meet-Together/blob/main/images/loho.png?raw=true" width="100" height="100"></p> 
 
+## Gitbook
+https://kai181.gitbook.io/flutter-meet-together/
+
 ## 功能特色
 #### &emsp;外觀
 ##### &emsp;&emsp;1.支援 深色／淺色 模式
