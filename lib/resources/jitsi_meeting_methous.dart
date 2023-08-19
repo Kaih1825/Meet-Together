@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
 import 'package:meet/screens/home_screen.dart';
 import 'package:meet/utils/snackBar.dart';
-import 'package:flutter/material.dart';
 
 class JitsiMeetMethous {
   void joinMeeting({
@@ -14,7 +13,7 @@ class JitsiMeetMethous {
     required BuildContext context,
   }) async {
     try {
-      Map<FeatureFlag, Object> featureFlags = {};
+      // Map<FeatureFlag, Object> featureFlags = {};
 
       var options = JitsiMeetingOptions(
         roomNameOrUrl: roomName,
@@ -22,7 +21,7 @@ class JitsiMeetMethous {
         isVideoMuted: isVideoMuted,
         userDisplayName: userDisplayName,
         userAvatarUrl: photoURL,
-        featureFlags: featureFlags,
+        // featureFlags: featureFlags,
       );
 
       await JitsiMeetWrapper.joinMeeting(

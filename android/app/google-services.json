@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "337188672655-9biunk5s4lauvlggpu4rjsuekucrued7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapp.meetTogether",
+            "certificate_hash": "dd528db9fee1ed80e44bd15e3061867b09aa991e"
+          }
+        },
+        {
           "client_id": "337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kapp.meetTogether",
             "certificate_hash": "410635efe7b53546a80107dc2792cd309d5cd39e"
+          }
+        },
+        {
+          "client_id": "337188672655-vegla69070he1c8idnt8ahsmkhcl68ac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapp.meetTogether",
+            "certificate_hash": "5b1f3819f13c48ef767759757852299bcbcafce8"
           }
         },
         {

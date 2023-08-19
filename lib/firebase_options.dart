@@ -45,11 +45,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyAq_mN8p5ocwP7GQ_RI0XtxR9SNjtwKe9o',
-    appId: '1:337188672655:web:e4993dac9c385597fd0cfa',
+    appId: '1:337188672655:web:db853223b23daa1cfd0cfa',
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     authDomain: 'meet-d9718.firebaseapp.com',
     storageBucket: 'meet-d9718.appspot.com',
+    measurementId: 'G-P4D0GRHLZG',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -62,22 +63,22 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBFZJZ948CEw0GNVzHwlbFNP2ionl1sDAo',
-    appId: '1:337188672655:ios:3e78984c9ac5beb2fd0cfa',
+    appId: '1:337188672655:ios:4952cbf4dd707d98fd0cfa',
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     storageBucket: 'meet-d9718.appspot.com',
-    androidClientId: '337188672655-irs27b9otp3a45112if2fbth04oirsbf.apps.googleusercontent.com',
+    androidClientId: '337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com',
     iosClientId: '337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk.apps.googleusercontent.com',
     iosBundleId: 'com.kapp.meetTogether',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBFZJZ948CEw0GNVzHwlbFNP2ionl1sDAo',
-    appId: '1:337188672655:ios:3e78984c9ac5beb2fd0cfa',
+    appId: '1:337188672655:ios:4952cbf4dd707d98fd0cfa',
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     storageBucket: 'meet-d9718.appspot.com',
-    androidClientId: '337188672655-irs27b9otp3a45112if2fbth04oirsbf.apps.googleusercontent.com',
+    androidClientId: '337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com',
     iosClientId: '337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk.apps.googleusercontent.com',
     iosBundleId: 'com.kapp.meetTogether',
   );
