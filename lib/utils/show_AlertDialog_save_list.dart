@@ -1,10 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:meet/screens/meeting_screen.dart';
-import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
-import 'color.dart';
-import 'package:page_animation_transition/page_animation_transition.dart';
 
 show_AlertDialog_save_list(BuildContext context) {
   // Init
@@ -41,8 +35,7 @@ show_AlertDialog_save_list(BuildContext context) {
     backgroundColor: Theme.of(context).colorScheme.background,
     actions: [
       ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Theme.of(context).colorScheme.secondaryContainer),
+        style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
         child: Padding(
           padding: const EdgeInsets.only(bottom: 0.8),
           child: Text(
@@ -55,8 +48,7 @@ show_AlertDialog_save_list(BuildContext context) {
         onPressed: () => Navigator.pop(context),
       ),
       ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).colorScheme.secondaryContainer),
+          style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
           child: Padding(
             padding: const EdgeInsets.only(bottom: 0.8),
             child: Text(
@@ -77,5 +69,4 @@ show_AlertDialog_save_list(BuildContext context) {
         return dialog;
       });
 }
-  // Show the dialog
-  
+// Show the dialog

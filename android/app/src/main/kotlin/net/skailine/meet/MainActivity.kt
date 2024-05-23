@@ -1,4 +1,4 @@
-package com.kapp.meet
+package net.skailine.meet
 
 import io.flutter.embedding.android.FlutterActivity
 

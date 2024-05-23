@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>337188672655-t7dbh3niarij563fnbpl7viva7iqbvob.apps.googleusercontent.com</string>
+	<string>337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.337188672655-t7dbh3niarij563fnbpl7viva7iqbvob</string>
+	<string>com.googleusercontent.apps.337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>337188672655-irs27b9otp3a45112if2fbth04oirsbf.apps.googleusercontent.com</string>
+	<string>337188672655-0pc9386lpadfc51hs4t5m5f1her31t03.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBFZJZ948CEw0GNVzHwlbFNP2ionl1sDAo</string>
 	<key>GCM_SENDER_ID</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kapp.meet</string>
+	<string>com.kapp.meetTogether</string>
 	<key>PROJECT_ID</key>
 	<string>meet-d9718</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:337188672655:ios:31ac0b01af2852e9fd0cfa</string>
+	<string>1:337188672655:ios:4952cbf4dd707d98fd0cfa</string>
 </dict>
 </plist>

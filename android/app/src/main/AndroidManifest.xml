@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kapp.meet">
+    package="net.skailine.meet">
    <application
         tools:replace="android:label"
         android:label="Meet Together"

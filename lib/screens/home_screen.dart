@@ -1,28 +1,22 @@
-import 'dart:ffi';
+import 'dart:async';
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
+
+import 'package:camera/camera.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:meet/main.dart';
 import 'package:meet/screens/about_screen.dart';
 import 'package:meet/screens/meeting_screen.dart';
 import 'package:meet/screens/set_information_screen.dart';
-import 'package:meet/utils/color.dart';
-import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
 import 'package:page_animation_transition/animations/right_to_left_transition.dart';
-import '../utils/information.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import '../utils/snackBar.dart';
-import '../auth/firebase_auth_google.dart';
-import 'dart:io';
 import 'package:page_animation_transition/page_animation_transition.dart';
-import '../resources/jitsi_meeting_methous.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../auth/firebase_auth_google.dart';
+import '../utils/information.dart';
 import '../utils/show_AlertDialog_join_Meet.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:camera/camera.dart';
-import 'dart:async';
+import '../utils/snackBar.dart';
 
 class home_screen extends StatefulWidget {
   const home_screen({Key? key}) : super(key: key);
@@ -64,8 +58,7 @@ class _home_screenState extends State<home_screen> {
       } else if (key == "name") {
         name = (sp.getString(key) ?? _authMethods.user.displayName.toString());
       } else if (key == "loginMethod") {
-        loginMethod =
-            (sp.getString(key) ?? _authMethods.user.displayName.toString());
+        loginMethod = (sp.getString(key) ?? _authMethods.user.displayName.toString());
       } else if (key == "recentMeet") {
         recentMeet = (sp.getString(key) ?? "沒有資料");
       } else if (key == "itemCount") {
@@ -108,8 +101,7 @@ class _home_screenState extends State<home_screen> {
 
   _buildSuggestions() {
     if (customNameList.length > 0)
-      Timer(Duration(milliseconds: 500),
-          () => _controller.jumpTo(_controller.position.maxScrollExtent));
+      Timer(Duration(milliseconds: 500), () => _controller.jumpTo(_controller.position.maxScrollExtent));
   }
 
   signOut() async {
@@ -164,8 +156,7 @@ class _home_screenState extends State<home_screen> {
     }
   }
 
-  Future<void> _displayTextInputDialog(
-      BuildContext context, int index, String curItemCount) async {
+  Future<void> _displayTextInputDialog(BuildContext context, int index, String curItemCount) async {
     return showDialog(
         barrierDismissible: false,
         context: context,
@@ -195,8 +186,7 @@ class _home_screenState extends State<home_screen> {
             backgroundColor: Theme.of(context).colorScheme.background,
             actions: [
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.secondaryContainer),
+                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 0.8),
                   child: Text(
@@ -218,16 +208,13 @@ class _home_screenState extends State<home_screen> {
                 },
               ),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary:
-                          Theme.of(context).colorScheme.secondaryContainer),
+                  style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 0.8),
                     child: Text(
                       joinButtonText,
                       style: TextStyle(
-                        color:
-                            Theme.of(context).colorScheme.onSecondaryContainer,
+                        color: Theme.of(context).colorScheme.onSecondaryContainer,
                       ),
                     ),
                   ),
@@ -277,10 +264,7 @@ class _home_screenState extends State<home_screen> {
                     padding: EdgeInsets.all(2.5),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Theme.of(context)
-                            .colorScheme
-                            .primary
-                            .withOpacity(0.3)),
+                        color: Theme.of(context).colorScheme.primary.withOpacity(0.3)),
                     child: ClipOval(
                       child: Image.network(
                         url,
@@ -303,9 +287,7 @@ class _home_screenState extends State<home_screen> {
             ListTile(
               title: Text(
                 "設定個人資料",
-                style: loginMethod == "anonymous"
-                    ? TextStyle(color: null)
-                    : TextStyle(color: Colors.grey),
+                style: loginMethod == "anonymous" ? TextStyle(color: null) : TextStyle(color: Colors.grey),
               ),
               onTap: loginMethod == "anonymous"
                   ? () {
@@ -315,8 +297,7 @@ class _home_screenState extends State<home_screen> {
                               pageAnimationType: RightToLeftTransition()),
                           (route) => route == null);*/
                       Navigator.of(context).push(PageAnimationTransition(
-                          page: set_information_screen(),
-                          pageAnimationType: RightToLeftTransition()));
+                          page: set_information_screen(), pageAnimationType: RightToLeftTransition()));
                     }
                   : null,
             ),
@@ -330,16 +311,14 @@ class _home_screenState extends State<home_screen> {
                 _removeData("url");
                 _removeData("name");
                 Navigator.of(context).pushAndRemoveUntil(
-                    new MaterialPageRoute(builder: (context) => new Meet_App()),
-                    (route) => route == null);
+                    new MaterialPageRoute(builder: (context) => new Meet_App()), (route) => route == null);
               },
             ),
             ListTile(
               title: Text("關於"),
               onTap: () {
-                Navigator.of(context).push(PageAnimationTransition(
-                    page: about_screen(),
-                    pageAnimationType: RightToLeftTransition()));
+                Navigator.of(context)
+                    .push(PageAnimationTransition(page: about_screen(), pageAnimationType: RightToLeftTransition()));
               },
             ),
           ],
@@ -363,25 +342,21 @@ class _home_screenState extends State<home_screen> {
                       child: ElevatedButton(
                         onPressed: () async {
                           randomRoomName();
-                          await availableCameras().then((value) => Navigator.of(
-                                  context)
-                              .push(PageAnimationTransition(
-                                  page: meeting_screen(
-                                    roomName: roomName,
-                                    name: name,
-                                    photoURL: url,
-                                    cameras: value,
-                                  ),
-                                  pageAnimationType: RightToLeftTransition())));
+                          await availableCameras().then((value) => Navigator.of(context).push(PageAnimationTransition(
+                              page: meeting_screen(
+                                roomName: roomName,
+                                name: name,
+                                photoURL: url,
+                                cameras: value,
+                              ),
+                              pageAnimationType: RightToLeftTransition())));
                         },
-                        style: ElevatedButton.styleFrom(
-                            primary: Theme.of(context).colorScheme.primary),
+                        style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary),
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 0.8),
                           child: Text(
                             "創建會議室",
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary),
+                            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                           ),
                         ),
                       ),
@@ -393,14 +368,12 @@ class _home_screenState extends State<home_screen> {
                         onPressed: () {
                           show_AlertDialog_join_Meet(context, name, url);
                         },
-                        style: ElevatedButton.styleFrom(
-                            primary: Theme.of(context).colorScheme.primary),
+                        style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary),
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 0.8),
                           child: Text(
                             "加入會議室",
-                            style: TextStyle(
-                                color: Theme.of(context).colorScheme.onPrimary),
+                            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                           ),
                         ),
                       ),
@@ -409,22 +382,19 @@ class _home_screenState extends State<home_screen> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
+                padding: const EdgeInsets.only(top: 30.0, left: 10.0, right: 10.0),
                 child: Container(
                   color: Colors.grey,
                   height: 1.0,
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 5.0, left: 10.0, right: 5.0),
+                padding: const EdgeInsets.only(top: 5.0, left: 10.0, right: 5.0),
                 child: Row(
                   children: [
                     Text(
                       "最近加入的會議室",
-                      style: TextStyle(
-                          fontSize: 18.0, fontWeight: FontWeight.w500),
+                      style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
                     )
                   ],
                 ),
@@ -441,29 +411,25 @@ class _home_screenState extends State<home_screen> {
                   Padding(
                     padding: const EdgeInsets.only(right: 5.0),
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: Theme.of(context).colorScheme.secondary),
+                      style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondary),
                       onPressed: recentMeet == "沒有資料"
                           ? null
                           : () async {
-                              await availableCameras().then((value) =>
-                                  Navigator.of(context).push(
-                                      PageAnimationTransition(
-                                          page: meeting_screen(
-                                            roomName: recentMeet,
-                                            name: name,
-                                            photoURL: url,
-                                            cameras: value,
-                                          ),
-                                          pageAnimationType:
-                                              RightToLeftTransition())));
+                              await availableCameras()
+                                  .then((value) => Navigator.of(context).push(PageAnimationTransition(
+                                      page: meeting_screen(
+                                        roomName: recentMeet,
+                                        name: name,
+                                        photoURL: url,
+                                        cameras: value,
+                                      ),
+                                      pageAnimationType: RightToLeftTransition())));
                             },
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 0.8),
                         child: Text(
                           "加入",
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.onSecondary),
+                          style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),
                         ),
                       ),
                     ),
@@ -471,8 +437,7 @@ class _home_screenState extends State<home_screen> {
                 ]),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    top: 9.0, left: 10.0, right: 10.0, bottom: 14.0),
+                padding: const EdgeInsets.only(top: 9.0, left: 10.0, right: 10.0, bottom: 14.0),
                 child: Container(
                   color: Colors.grey,
                   height: 1.0,
@@ -490,20 +455,18 @@ class _home_screenState extends State<home_screen> {
                       print(customNameList[index] + " " + roomNameList[index]);
                       if (roomNameList[index].isEmpty) {
                         showSnackBar(context, "會議代碼為空，請新增會議代碼");
-                      } else if (roomNameList[index].contains(RegExp(
-                              r'[!@#$%^&*(),.?":{}|<>/\，。、：;；~`ˇˋˊ˙=+]')) ||
+                      } else if (roomNameList[index].contains(RegExp(r'[!@#$%^&*(),.?":{}|<>/\，。、：;；~`ˇˋˊ˙=+]')) ||
                           roomNameList[index].contains(RegExp(r"'"))) {
                         showSnackBar(context, "請勿輸入特殊字元");
                       } else {
-                        await availableCameras().then((value) =>
-                            Navigator.of(context).push(PageAnimationTransition(
-                                page: meeting_screen(
-                                  roomName: roomNameList[index],
-                                  name: name,
-                                  photoURL: url,
-                                  cameras: value,
-                                ),
-                                pageAnimationType: RightToLeftTransition())));
+                        await availableCameras().then((value) => Navigator.of(context).push(PageAnimationTransition(
+                            page: meeting_screen(
+                              roomName: roomNameList[index],
+                              name: name,
+                              photoURL: url,
+                              cameras: value,
+                            ),
+                            pageAnimationType: RightToLeftTransition())));
                       }
                     },
                     child: Slidable(
@@ -513,17 +476,14 @@ class _home_screenState extends State<home_screen> {
                           SlidableAction(
                             // An action can be bigger than the others.
                             flex: 1,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20.0),
-                                bottomLeft: Radius.circular(20.0)),
+                            borderRadius:
+                                BorderRadius.only(topLeft: Radius.circular(20.0), bottomLeft: Radius.circular(20.0)),
                             onPressed: ((context) => {
-                                  _displayTextInputDialog(
-                                      context, index, "AAAAAA"),
+                                  _displayTextInputDialog(context, index, "AAAAAA"),
                                   customNameCon.text = customNameList[index],
                                   roomNameCon.text = roomNameList[index],
                                 }),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.secondary,
+                            backgroundColor: Theme.of(context).colorScheme.secondary,
                             foregroundColor: Colors.white,
                             icon: Icons.edit,
                             label: '編輯',
@@ -532,46 +492,34 @@ class _home_screenState extends State<home_screen> {
                             onPressed: ((context) => {
                                   customNameList.removeAt(index),
                                   roomNameList.removeAt(index),
-                                  itemCount =
-                                      (int.parse(itemCount) - 1).toString(),
+                                  itemCount = (int.parse(itemCount) - 1).toString(),
                                   _updateString("itemCount", itemCount),
                                   _updateList("stringList", customNameList),
                                   _updateList("roomNameList", roomNameList),
                                 }),
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20.0),
-                                bottomRight: Radius.circular(20.0)),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.error,
-                            foregroundColor:
-                                Theme.of(context).colorScheme.onError,
+                            borderRadius:
+                                BorderRadius.only(topRight: Radius.circular(20.0), bottomRight: Radius.circular(20.0)),
+                            backgroundColor: Theme.of(context).colorScheme.error,
+                            foregroundColor: Theme.of(context).colorScheme.onError,
                             icon: Icons.delete,
                             label: '刪除',
                           ),
                         ],
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(
-                            bottom: 10.0, left: 10.0, right: 10.0),
+                        padding: const EdgeInsets.only(bottom: 10.0, left: 10.0, right: 10.0),
                         child: Card(
                           child: ListTile(
                             title: Text(
                               item,
-                              style: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onSecondaryContainer),
                             ),
                             subtitle: Text(
                               "會議代碼：" + roomNameList[index],
-                              style: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondaryContainer),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onSecondaryContainer),
                             ),
                           ),
-                          color:
-                              Theme.of(context).colorScheme.secondaryContainer,
+                          color: Theme.of(context).colorScheme.secondaryContainer,
                         ),
                       ),
                     ),

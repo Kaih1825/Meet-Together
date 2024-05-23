@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -55,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD2-y3R_MYZSyzgKsmBCc9Hu0KMQK-HObI',
-    appId: '1:337188672655:android:ea043f9ae132768efd0cfa',
+    appId: '1:337188672655:android:6d9cc63a66f2b063fd0cfa',
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     storageBucket: 'meet-d9718.appspot.com',
@@ -67,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     storageBucket: 'meet-d9718.appspot.com',
-    androidClientId: '337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com',
+    androidClientId: '337188672655-0pc9386lpadfc51hs4t5m5f1her31t03.apps.googleusercontent.com',
     iosClientId: '337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk.apps.googleusercontent.com',
     iosBundleId: 'com.kapp.meetTogether',
   );
@@ -78,8 +75,19 @@ class DefaultFirebaseOptions {
     messagingSenderId: '337188672655',
     projectId: 'meet-d9718',
     storageBucket: 'meet-d9718.appspot.com',
-    androidClientId: '337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com',
+    androidClientId: '337188672655-0pc9386lpadfc51hs4t5m5f1her31t03.apps.googleusercontent.com',
     iosClientId: '337188672655-8g3sg78jrq4s3fgudf50oee645k8ophk.apps.googleusercontent.com',
     iosBundleId: 'com.kapp.meetTogether',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAq_mN8p5ocwP7GQ_RI0XtxR9SNjtwKe9o',
+    appId: '1:337188672655:web:08f04c4f2310011bfd0cfa',
+    messagingSenderId: '337188672655',
+    projectId: 'meet-d9718',
+    authDomain: 'meet-d9718.firebaseapp.com',
+    storageBucket: 'meet-d9718.appspot.com',
+    measurementId: 'G-KFJ3N2ZCLG',
+  );
+
 }

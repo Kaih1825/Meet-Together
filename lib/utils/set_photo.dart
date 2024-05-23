@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'color.dart';
+
 import '../utils/information.dart';
 
 /*set_photoURL_dialog(BuildContext context) {
@@ -53,8 +53,7 @@ Future set_photoURL_dialog(BuildContext context) async {
     backgroundColor: Theme.of(context).colorScheme.background,
     actions: [
       ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).colorScheme.secondaryContainer),
+          style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
           child: Text(
             "關閉",
             style: TextStyle(

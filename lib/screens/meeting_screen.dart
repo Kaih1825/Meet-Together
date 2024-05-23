@@ -1,14 +1,11 @@
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
-import '../resources/jitsi_meeting_methous.dart';
-import 'dart:math';
-import '../main.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:camera/camera.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+
+import '../resources/jitsi_meeting_methous.dart';
 import '../screens/no_Internet.dart';
 
 class meeting_screen extends StatefulWidget {
@@ -42,9 +39,10 @@ class _meeting_screenState extends State<meeting_screen> {
     isInternetConnected();
     // initialize the rear camera
     try {
-      initCamera(widget.cameras![1]);
+      initCamera(widget.cameras!.firstWhere((camera) => camera.lensDirection == CameraLensDirection.front));
     } catch (e) {
       initCamera(widget.cameras![0]);
+      print("camera error $e");
     }
   }
 
@@ -75,8 +73,7 @@ class _meeting_screenState extends State<meeting_screen> {
 
   Future initCamera(CameraDescription cameraDescription) async {
     //create a CameraController
-    _cameraController =
-        CameraController(cameraDescription, ResolutionPreset.high);
+    _cameraController = CameraController(cameraDescription, ResolutionPreset.high);
     //initialize the controller
     try {
       await _cameraController.initialize().then((_) {
@@ -98,19 +95,15 @@ class _meeting_screenState extends State<meeting_screen> {
     } on SocketException catch (_) {
       setState(() {
         Navigator.of(context).pushAndRemoveUntil(
-            new MaterialPageRoute(builder: (context) => new noInternet()),
-            (route) => route == null);
+            new MaterialPageRoute(builder: (context) => new noInternet()), (route) => route == null);
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Color videocamBorderColor =
-        cameraIsOpen ? Colors.grey : Colors.red.shade800;
-    Color videocamFillColor = cameraIsOpen
-        ? Theme.of(context).colorScheme.background
-        : Colors.red.shade900;
+    Color videocamBorderColor = cameraIsOpen ? Colors.grey : Colors.red.shade800;
+    Color videocamFillColor = cameraIsOpen ? Theme.of(context).colorScheme.background : Colors.red.shade900;
     Icon videocam = cameraIsOpen
         ? Icon(
             Icons.videocam_outlined,
@@ -124,9 +117,7 @@ class _meeting_screenState extends State<meeting_screen> {
           );
 
     Color micBorderColor = micIsOpen ? Colors.grey : Colors.red.shade800;
-    Color micFillColor = micIsOpen
-        ? Theme.of(context).colorScheme.background
-        : Colors.red.shade900;
+    Color micFillColor = micIsOpen ? Theme.of(context).colorScheme.background : Colors.red.shade900;
     Icon mic = micIsOpen
         ? Icon(
             Icons.mic,
@@ -145,12 +136,7 @@ class _meeting_screenState extends State<meeting_screen> {
             IconButton(
                 onPressed: () {
                   Share.share("""點擊下方連結加入會議：
-https://meet.jit.si/${widget.roomName}
-=====
-
-只想要透過手機撥入嗎？
-點擊此連結來查看此會議的電話撥入號碼
-https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
+https://meet.skailine.net:8443/${widget.roomName}""");
                 },
                 icon: Icon(
                   Icons.share,
@@ -160,15 +146,14 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
         ),
         body: OrientationBuilder(
           builder: ((context, orientation) {
-            if (MediaQuery.of(context).size.width >
-                MediaQuery.of(context).size.height) {
+            if (MediaQuery.of(context).size.width > MediaQuery.of(context).size.height) {
               isStraight = false;
             } else {
               isStraight = true;
             }
             if (isStraight == true) {
               return Padding(
-                padding: const EdgeInsets.only(top:40.0),
+                padding: const EdgeInsets.only(top: 40.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -196,8 +181,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                         child: cameraIsOpen
                             ? _cameraController.value.isInitialized
                                 ? CameraPreview(_cameraController)
-                                : Center(
-                                    child: const CircularProgressIndicator())
+                                : Center(child: const CircularProgressIndicator())
                             : Container(
                                 height: 150,
                                 width: 250,
@@ -224,9 +208,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  cameraIsOpen
-                                      ? cameraIsOpen = false
-                                      : cameraIsOpen = true;
+                                  cameraIsOpen ? cameraIsOpen = false : cameraIsOpen = true;
                                   print(cameraIsOpen);
                                 });
                               },
@@ -249,9 +231,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  micIsOpen
-                                      ? micIsOpen = false
-                                      : micIsOpen = true;
+                                  micIsOpen ? micIsOpen = false : micIsOpen = true;
                                   print(micIsOpen);
                                 });
                               },
@@ -275,21 +255,16 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                               width: 130.0,
                               height: 50.0,
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    primary:
-                                        Theme.of(context).colorScheme.primary),
-                                onPressed: () {
-                                  _updateString("recentMeet",widget.roomName);
-                                  joinMeeting();
+                                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary),
+                                onPressed: () async {
+                                  await _updateString("recentMeet", widget.roomName);
+                                  await joinMeeting();
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 0.8),
                                   child: Text(
                                     "加入",
-                                    style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary),
+                                    style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                                   ),
                                 ),
                               ),
@@ -299,16 +274,18 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                          top: 30.0, left: 100.0, right: 100.0),
+                      padding: const EdgeInsets.only(top: 30.0, left: 100.0, right: 100.0),
                       child: Container(
                         color: Colors.grey,
                         height: 1.0,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top:20.0),
-                      child: Text("Power By Jitsi Meet",style: TextStyle(fontSize: 13.0),),
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        "Power By Jitsi Meet",
+                        style: TextStyle(fontSize: 13.0),
+                      ),
                     )
                   ],
                 ),
@@ -342,8 +319,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                               width: 250,
                               child: _cameraController.value.isInitialized
                                   ? CameraPreview(_cameraController)
-                                  : Center(
-                                      child: const CircularProgressIndicator()),
+                                  : Center(child: const CircularProgressIndicator()),
                             )
                           : Container(
                               height: 150,
@@ -370,9 +346,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  cameraIsOpen
-                                      ? cameraIsOpen = false
-                                      : cameraIsOpen = true;
+                                  cameraIsOpen ? cameraIsOpen = false : cameraIsOpen = true;
                                   print(cameraIsOpen);
                                 });
                               },
@@ -395,9 +369,7 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  micIsOpen
-                                      ? micIsOpen = false
-                                      : micIsOpen = true;
+                                  micIsOpen ? micIsOpen = false : micIsOpen = true;
                                   print(micIsOpen);
                                 });
                               },
@@ -421,21 +393,15 @@ https://meet.jit.si/static/dialInInfo.html?room=${widget.roomName}""");
                               width: 130.0,
                               height: 50.0,
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    primary:
-                                        Theme.of(context).colorScheme.primary),
+                                style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.primary),
                                 onPressed: () {
-                                  _updateString("recentMeet",widget.roomName);
                                   joinMeeting();
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 0.8),
                                   child: Text(
                                     "加入",
-                                    style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .onPrimary),
+                                    style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                                   ),
                                 ),
                               ),

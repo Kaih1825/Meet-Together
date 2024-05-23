@@ -1,12 +1,8 @@
-import 'dart:ffi';
-
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:meet/screens/meeting_screen.dart';
-import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
-import 'color.dart';
-import 'package:page_animation_transition/page_animation_transition.dart';
+
 import '../utils/snackBar.dart';
-import 'package:camera/camera.dart';
 
 show_AlertDialog_join_Meet(BuildContext context, String name, String photoURL) {
   // Init
@@ -22,8 +18,7 @@ show_AlertDialog_join_Meet(BuildContext context, String name, String photoURL) {
     backgroundColor: Theme.of(context).colorScheme.background,
     actions: [
       ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Theme.of(context).colorScheme.secondaryContainer),
+        style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
         child: Padding(
           padding: const EdgeInsets.only(bottom: 0.8),
           child: Text(
@@ -36,8 +31,7 @@ show_AlertDialog_join_Meet(BuildContext context, String name, String photoURL) {
         onPressed: () => Navigator.pop(context),
       ),
       ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              primary: Theme.of(context).colorScheme.secondaryContainer),
+          style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.secondaryContainer),
           child: Padding(
             padding: const EdgeInsets.only(bottom: 0.8),
             child: Text(
@@ -47,26 +41,25 @@ show_AlertDialog_join_Meet(BuildContext context, String name, String photoURL) {
               ),
             ),
           ),
-          onPressed: () async{
+          onPressed: () async {
             if (roomNameCon.text.isEmpty) {
               showSnackBar(context, "會議代碼為空，請新增會議代碼");
-            } else if (roomNameCon.text.contains(
-                    RegExp(r'[!@#$%^&*(),.?":{}|<>/\，。、：;；~`ˇˋˊ˙=+]')) ||
+            } else if (roomNameCon.text.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>/\，。、：;；~`ˇˋˊ˙=+]')) ||
                 roomNameCon.text.contains(RegExp(r"'"))) {
               showSnackBar(context, "請勿輸入特殊字元");
+            } else {
+              Navigator.pop(context);
+              await availableCameras().then((value) => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => meeting_screen(
+                              roomName: roomNameCon.text,
+                              name: name,
+                              photoURL: photoURL,
+                              cameras: value,
+                            )),
+                  ));
             }
-            else{
-            await availableCameras().then((value)=>
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => meeting_screen(
-                        roomName: roomNameCon.text,
-                        name: name,
-                        photoURL: photoURL,
-                        cameras: value,
-                      )),
-            ));}
           }),
     ],
   );
@@ -76,5 +69,4 @@ show_AlertDialog_join_Meet(BuildContext context, String name, String photoURL) {
         return dialog;
       });
 }
-  // Show the dialog
-  
+// Show the dialog

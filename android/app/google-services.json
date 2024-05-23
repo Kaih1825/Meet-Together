@@ -7,34 +7,26 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:337188672655:android:ea043f9ae132768efd0cfa",
+        "mobilesdk_app_id": "1:337188672655:android:6d9cc63a66f2b063fd0cfa",
         "android_client_info": {
-          "package_name": "com.kapp.meetTogether"
+          "package_name": "net.skailine.meet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "337188672655-9biunk5s4lauvlggpu4rjsuekucrued7.apps.googleusercontent.com",
+          "client_id": "337188672655-0pc9386lpadfc51hs4t5m5f1her31t03.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.kapp.meetTogether",
-            "certificate_hash": "dd528db9fee1ed80e44bd15e3061867b09aa991e"
+            "package_name": "net.skailine.meet",
+            "certificate_hash": "15a15e8052b6eecbe4d5ac91a330b0e8a66303e7"
           }
         },
         {
-          "client_id": "337188672655-la7c8hoqof9176qn5qonst6ko4k2pl4b.apps.googleusercontent.com",
+          "client_id": "337188672655-2gj9b8q1a7vril4l9k8edjojee4af47t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.kapp.meetTogether",
-            "certificate_hash": "410635efe7b53546a80107dc2792cd309d5cd39e"
-          }
-        },
-        {
-          "client_id": "337188672655-vegla69070he1c8idnt8ahsmkhcl68ac.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.kapp.meetTogether",
-            "certificate_hash": "5b1f3819f13c48ef767759757852299bcbcafce8"
+            "package_name": "net.skailine.meet",
+            "certificate_hash": "f1b23198f822a39214c228860c804ea6c5a8ea4d"
           }
         },
         {

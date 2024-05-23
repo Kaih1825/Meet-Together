@@ -46,14 +46,13 @@ dependencies:
   page_animation_transition:
   flutter_bounce:
   url_launcher:
-  jitsi_meet_wrapper_platform_interface:
-  jitsi_meet_wrapper:
   share_plus:
   flutter_slidable:
   camera:
   connectivity_plus:
   flutter_svg:
   flutter_launcher_icons:
+  jitsi_meet_flutter_sdk: ^0.4.2
 
 flutter_icons:
   ios: false
