@@ -16,7 +16,7 @@ class JitsiMeetMethous {
       // Map<FeatureFlag, Object> featureFlags = {};
       //
       var options = JitsiMeetConferenceOptions(
-        serverURL: "https://meet.skailine.net:8443",
+        serverURL: "https://meet.skailine.net",
         room: roomName,
         configOverrides: {
           "startWithAudioMuted": isAudioMuted,
